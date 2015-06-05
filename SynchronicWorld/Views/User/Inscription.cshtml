@@ -1,0 +1,26 @@
+﻿@model SynchronicWorld.Models.User
+
+@{
+    ViewBag.Title = "Inscription";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Register</title>
+</head>
+    <body>
+        <div>
+            @using (Html.BeginForm("Inscription", "User"))
+            {
+                @Html.EditorForModel()
+                <br/>
+                <input type="submit" name="Inscription" value="submit"/>
+            }
+
+           @Html.ActionLink("Inscrit ? Connecte-toi ", "Connexion", "User")
+        </div>    
+    </body>
+</html>
+

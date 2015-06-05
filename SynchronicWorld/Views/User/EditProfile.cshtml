@@ -1,0 +1,26 @@
+﻿@using SynchronicWorld.Models
+@(typeof (User))
+
+@{
+    ViewBag.Title = "EditProfile";
+}
+
+<h2>EditProfile</h2>
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Editer le profil</title>
+</head>
+<body>
+<div>
+    @using (Html.BeginForm("EditProfile", "User", FormMethod.Post))
+    {
+        @Html.EditorForModel()
+        <br/>
+        <input type="submit" name="Edit_profile" value="submit" />
+    }
+</div>        
+</body>
+</html>

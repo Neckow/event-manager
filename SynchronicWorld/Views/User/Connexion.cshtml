@@ -1,0 +1,27 @@
+﻿@model SynchronicWorld.Models.User
+
+@{
+    ViewBag.Title = "Connexion";
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Connexion</title>
+    </head>
+    <body>
+        <div>
+            @using (Html.BeginForm("Connexion", "User", FormMethod.Post))
+            {
+                <label>Name:</label>
+                @Html.EditorFor(u => u.UserName);
+                <br>
+                <label>Password:</label>
+                @Html.EditorFor(u => u.UserPassword);
+                <br />
+                <input type="submit" name="Connexion" value="Connect " />
+            }
+        </div>  
+    </body>
+</html>

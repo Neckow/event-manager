@@ -1,0 +1,74 @@
+﻿@model System.Collections.Generic.IEnumerable<SynchronicWorld.Models.Event>
+
+@{
+    ViewBag.Title = "ListEvent";
+}
+
+<h2>ListEvent</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EventName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateDeDebut)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DateDeFin)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeId)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EventName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateDeDebut)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DateDeFin)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TypeId)
+        </td>
+        <td>
+            <input type="button" value="Edit" onclick="location.href='@Url.Action("EditEvent", "Event", new RouteValueDictionary(new {Id = item.Id}))'" />
+            <input type="button" value="Delete" onclick="location.href='@Url.Action("DelEvent", "Event", new RouteValueDictionary(new {Id = item.Id}))'" />
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,16 @@
+﻿@using System.Collections.Generic
+@using System.Web.Services.Description
+
+@{
+    ViewBag.Title = "CreateEvent";
+}
+
+<h2>CreateEvent</h2>
+
+@using (Html.BeginForm("CreateEvent", "Event", FormMethod.Post))
+{
+    @Html.EditorForModel()
+    <br/>
+    @Html.DropDownList("Type", ViewData["types"] as List<SelectListItem>)
+    <input type="submit" name="CreateEvent" value="submit" />
+}

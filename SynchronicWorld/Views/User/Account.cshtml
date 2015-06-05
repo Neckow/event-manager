@@ -1,0 +1,85 @@
+﻿@model SynchronicWorld.Models.FriendViewModel
+
+@{
+    ViewBag.Title = "Account";
+}
+
+<h2>Account</h2>
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>Account</title>
+</head>
+<body>
+
+    @if (Model.usersFollowedList.Count != 0)
+    {
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var u in Model.usersFollowedList)
+                {
+                    <tr>
+                        <td>@u.Name</td>
+                        <td>@u.UserName</td>
+                        <td>@Html.ActionLink("Delete", "Delete/" + u.Id, "User")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    
+<div>
+    @using (Html.BeginForm(actionName: "Search", controllerName: "User", method: FormMethod.Post))
+    {
+        <label>Search a friend</label>
+        <input type="text" name="search"/>
+        <input type="submit" value="Search"/>
+    }
+</div>
+
+
+@if (Model.usersToFollowList.Count != 0)
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Username</th>
+                <th>Add</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var u in Model.usersToFollowList)
+            {
+                <tr>
+                    <td>@u.Name</td>
+                    <td>@u.UserName</td>
+                    <td>@Html.ActionLink("Add", "Add/" + u.Id, "User")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+
+
+<div>
+    @Html.ActionLink("Edit Profile", "EditProfile", "User")
+</div>
+<div>
+    @Html.ActionLink("Create Event", "CreateEvent", "Event")
+</div>
+<div>
+    @Html.ActionLink("List Event", "ListEvent")
+</div>
+</body>
+</html>
+
